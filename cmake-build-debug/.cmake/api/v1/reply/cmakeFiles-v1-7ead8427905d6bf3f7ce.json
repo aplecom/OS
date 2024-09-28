@@ -6,7 +6,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.28.3/CMakeSystem.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.30.3/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -20,7 +20,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.28.3/CMakeCCompiler.cmake"
+			"path" : "cmake-build-debug/CMakeFiles/3.30.3/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -91,12 +91,12 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/user/CLionProjects/myShell/cmake-build-debug",
-		"source" : "/home/user/CLionProjects/myShell"
+		"build" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell/cmake-build-debug",
+		"source" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell"
 	},
 	"version" : 
 	{
 		"major" : 1,
-		"minor" : 0
+		"minor" : 1
 	}
 }

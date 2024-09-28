@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/user/CLionProjects/myShell/cmake-build-debug"
+			"value" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "28"
+			"value" : "30"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -427,7 +427,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/CLionProjects/myShell/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -487,7 +487,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/user/CLionProjects/myShell"
+			"value" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1047,7 +1047,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/CLionProjects/myShell/cmake-build-debug"
+			"value" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell/cmake-build-debug"
 		},
 		{
 			"name" : "myShell_IS_TOP_LEVEL",
@@ -1071,7 +1071,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/user/CLionProjects/myShell"
+			"value" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell"
 		}
 	],
 	"kind" : "cache",

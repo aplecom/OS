@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/user/CLionProjects/myShell/cmake-build-debug",
-		"source" : "/home/user/CLionProjects/myShell"
+		"build" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell/cmake-build-debug",
+		"source" : "/home/user/\u0420\u0430\u0431\u043e\u0447\u0438\u0439 \u0441\u0442\u043e\u043b/save/myShell"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 7
 	}
 }

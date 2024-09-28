@@ -20,16 +20,16 @@ void print_prompt() {
 
 // Функция для выполнения внешней команды
 int execute_command(char *args[],char* shell_path) {
-    pid_t pid = fork(); // Создание нового процесса
+    pid_t pid = fork(); // Создание нового процесса через fork(), а pid идентификатор
     if (pid < 0) {
-        perror("fork() failed"); // выводит на экран текст ошибки, связанный с последним системным вызовом, который завершился ошибкой
-        exit(EXIT_FAILURE); // выход из программы с кодом ошибки
+        perror("fork() failed");
+        exit(EXIT_FAILURE);
     } else if (pid == 0) {
         // Дочерний процесс
         setenv("parent", shell_path, 1);
-        if (execvp(args[0], args) == -1) {
-            perror("execvp() failed"); // выводит на экран текст ошибки, связанный с последним системным вызовом, который завершился ошибкой
-            exit(EXIT_FAILURE);  // выход из программы с кодом ошибки
+        if (execvp(args[0], args) == -1) { // исполняем если можем
+            perror("execvp() failed");
+            exit(EXIT_FAILURE);
         }
     } else {
         // Родительский процесс
@@ -45,15 +45,15 @@ int main() {
     char *token; // указатель на текущий токен при токенизации ввода
     char *shell_path = "/home/user/CLionProjects/myShell/myshell";
 
-    setenv("shell", shell_path, 1);
+    setenv("shell", shell_path, 1); // добавляет новое значение в массиве переменных среды с именем name и значением value, или заменяет старое значение если name уже есть и replace = 1
 
     while (1) { // неприрывное ожидание от пользователя с помощью бесконечного цикла
         print_prompt(); // Вывод приглашения командной строки
         fgets(input, sizeof(input), stdin); // Получение ввода пользователя
-        input[strcspn(input, "\n")] = '\0'; // Удаление символа новой строки из ввода замена его на нуль-терминатором
+        input[strcspn(input, "\n")] = '\0'; // подсчитали сколько символов без \n и добавили в конце \0
 
         // Токенизация ввода
-        token = strtok(input, " "); // токенизирует ввод пользователя по пробелам.
+        token = strtok(input, " "); // токенизирует ввод пользователя по пробелам.Вернет NULL - если нет строки  или вернет указатель на первый символ выделенной части строки.
         int i = 0;
         while (token != NULL && i < MAX_ARGUMENTS - 1) {
             args[i++] = token; // Заполнение массива аргументов
@@ -67,12 +67,13 @@ int main() {
         }
 
         // Внутренние команды
-        if (strcmp(args[0], "cd") == 0) {
+        if (strcmp(args[0], "cd") == 0) { // если индентичны
             if (args[1] == NULL) {
                 printf("Usage: cd <directory>\n");
             } else {
-                if (chdir(args[1]) != 0) {
-                    perror("chdir() failed");
+                if (chdir(args[1]) != 0) { // не получилось вставить путь
+                //perror("chdir() failed");
+                printf("chdir() failed\n");
                 }
             }
         } else if (strcmp(args[0], "clr") == 0) {
@@ -81,10 +82,12 @@ int main() {
             if (args[1] == NULL) {
                 system("ls");
             } else {
-                printf("Usage: dir <directory>\n");
+                char command[1024];
+                snprintf(command, sizeof(command), "ls %s", args[1]);
+                system(command);
             }
         } else if (strcmp(args[0], "environ") == 0) {
-            extern char **environ; // обальная переменная, которая хранит указатели на строки, представляющие переменные окружения
+            extern char **environ; // глобальная переменная, которая хранит указатели на строки, представляющие переменные окружения
             for (char **env = environ; *env != NULL; env++) {
                 printf("%s\n", *env);
             }
@@ -95,7 +98,7 @@ int main() {
             printf("\n");
         } else if (strcmp(args[0], "help") == 0) {
             printf("Built-in commands:\n");
-            printf("cd <directory>     Change directory\n");
+            printf("cd <directory>    Change directory\n");
             printf("clr               Clear the screen\n");
             printf("dir <directory>   List contents of directory\n");
             printf("environ           Display environment variables\n");
@@ -110,9 +113,7 @@ int main() {
             break;
         } else {
             // Внешняя команда
-            if (!execute_command(args,shell_path)) {
-                fprintf(stderr, "Command not found: %s\n", args[0]);
-            }
+            execute_command(args,shell_path);
         }
     }
 
